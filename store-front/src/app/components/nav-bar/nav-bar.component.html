@@ -1,0 +1,91 @@
+<div class="page-top" style="width: 100%; height: 20px; background-color: #f46b42"></div>
+
+
+<!--
+<nav class="navbar navbar-default navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand pointer" routerLink="/home">GROCERY STORE</a>
+		</div>
+
+		<div id="navbar">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a mat-button routerLink="/productList">PRODUCT</a></li>
+				<form (ngSubmit)="onSearcyByTitle()" class="navbar-form">
+					<div class="form-group">
+						<input type="text" name="searcyByTitle" [(ngModel)]="keyboard" class="form-control" placeholder="Product Title" />
+					</div>
+					<button type="submit" class="btn btn-default">Search</button>
+				</form>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li *ngIf="!loggedIn">
+					<a mat-button routerLink="/myAccount">MY ACCOUNT</a>
+				</li>
+				<li *ngIf="loggedIn">
+					<a mat-button routerLink="/shoppingCart">SHOPPING CART</a>
+				</li>
+				<li *ngIf="loggedIn">
+					<a mat-button routerLink="/myProfile">MY PROFILE</a>
+				</li>
+				<li *ngIf="loggedIn">
+					<a mat-button (click)="logout()">LOGOUT</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+-->
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <a class="navbar-brand" routerLink="/home">GROCERY STORE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink='/productList'>PRODUCT <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li *ngIf='!loggedIn' class="nav-item">
+          <a class="nav-link" routerLink='/myAccount'>MY ACCOUNT</a>
+        </li>
+        <li *ngIf='loggedIn' class="nav-item">
+          <a class="nav-link" routerLink='/shoppingCart'>SHOPPING CART</a>
+        </li>
+        <li *ngIf='loggedIn' class="nav-item">
+          <a class="nav-link" routerLink='/myProfile'>MY PROFILE</a>
+        </li>
+        <li *ngIf='loggedIn' class="nav-item">
+          <a class="nav-link"  (click)="logout()">LOGOUT</a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+
+    
+      </ul>
+      <form (ngSubmit)="onSearchByTitle()" class="form-inline my-2 my-lg-0">
+        <input  name="searchByTitle" [(ngModel)]="keyboard" class="form-control mr-sm-2" type="search" placeholder="Product Title" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+

@@ -1,0 +1,55 @@
+<div class="container">
+   
+    <hr style="position: absolute;width:85%; height:6px; background-color: #333; z-index:-1; margin-top: -170px;" />
+    <div class="row">
+        <div class="row" style="margin-top: 120px;">
+            <div class="col-xs-3">
+                <a routerLink="/productList">Back to product list</a>
+                <br />
+                <br />
+                <br />
+                <img class="img-responsive" src="{{serverPath}}/image/product/{{product.id}}.png" />
+            </div>
+            <div class="col-xs-9">
+                <h3><span *ngIf="addproductSuccess" style="color:forestgreen"><i class="fa fa-check" style="color:forestgreen"></i>Added to cart.</span></h3>
+                <h3><span *ngIf="notEnoughStock" style="color:red">Oops, only <span>{{product.inStockNumber}}</span> In Stock.</span> </h3>
+                <h3>{{product.title}}</h3>
+                <div class="row">
+                    <div class="col-xs-5">
+                       
+                        <p><strong>Category:</strong><span>{{product.category}}</span></p>
+                       
+        
+                        <p><strong> Weight:</strong> <span>{{product.Weight}}</span> ounces</p>
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="panel panel-default" style="border-width:5px; margin-top:20px;">
+                            <div class="panel-body">
+                                <div class="col-xs-6">
+                                    
+                                    <p> Price: <span style="text-decoration:line-through;">$<span>{{product.listPrice | number : '1.2-2'}}</span></span>
+                                    </p>
+                                
+                                    <span>Qty: </span>
+                                    <select [(ngModel)]="qty" class="browser-default" style="width:50px; display:inline;">
+                                        <option *ngFor="let x of numberList" [ngValue]="x">{{x}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-6">
+                                    <h4 *ngIf="product.inStockNumber>10" style="color:green;">In Stock</h4>
+            					<h4 *ngIf="product.inStockNumber<10 && product.inStockNumber>0" style="color:green;">Only <span>{{product.inStockNumber}}</span> In Stock</h4>
+            					<h4 *ngIf="product.inStockNumber==0" style="color:darkred;">Unavailable</h4>
+            					<button mat-raised-button [disabled]="product.inStockNumber==0" (click)="onAddToCart()" class="mat-primary">Add to Cart</button>
+            				</div>
+            			</div>
+            				
+            			</div>
+            		</div>
+            	</div>
+            </div>
+
+            <hr />
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+</div>
